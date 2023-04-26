@@ -22,33 +22,35 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            {cycles.map((cycle) => {
-              return (
-                <tr key={cycle.id}>
-                  <td>{cycle.task}</td>
-                  <td>{cycle.minutesAmount} minutos</td>
-                  <td>
-                    {formatDistanceToNow(cycle.startDate, {
-                      addSuffix: true,
-                      locale: ptBR,
-                    })}
-                  </td>
-                  <td>
-                    {cycle.finishedDate && (
-                      <Status statusType="success">Concluído</Status>
-                    )}
+            {cycles
+              .map((cycle) => {
+                return (
+                  <tr key={cycle.id}>
+                    <td>{cycle.task}</td>
+                    <td>{cycle.minutesAmount} minutos</td>
+                    <td>
+                      {formatDistanceToNow(cycle.startDate, {
+                        addSuffix: true,
+                        locale: ptBR,
+                      })}
+                    </td>
+                    <td>
+                      {cycle.finishedDate && (
+                        <Status statusType="success">Concluído</Status>
+                      )}
 
-                    {cycle.interruptedDate && (
-                      <Status statusType="error">Interrompido</Status>
-                    )}
+                      {cycle.interruptedDate && (
+                        <Status statusType="error">Interrompido</Status>
+                      )}
 
-                    {!cycle.finishedDate && !cycle.interruptedDate && (
-                      <Status statusType="warning">Em andamento</Status>
-                    )}
-                  </td>
-                </tr>
-              )
-            })}
+                      {!cycle.finishedDate && !cycle.interruptedDate && (
+                        <Status statusType="warning">Em andamento</Status>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })
+              .reverse()}
           </tbody>
         </table>
       </HistoryList>
