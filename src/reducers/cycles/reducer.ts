@@ -31,16 +31,11 @@ export const TYPES_CYCLES_MUTATION = {
 
   MARK_CURRENT_CYCLE_AS_FINISHED: {
     type: 'MARK_CURRENT_CYCLE_AS_FINISHED',
-    mutation: (
-      state: CycleState,
-      payload: {
-        activeCycleId: string
-      },
-    ) => {
+    mutation: (state: CycleState) => {
       return {
         ...state,
         cycles: state.cycles.map((cycle) => {
-          if (cycle.id === payload.activeCycleId) {
+          if (cycle.id === state.activeCycleId) {
             return { ...cycle, finishedDate: new Date() }
           }
           return cycle
@@ -52,16 +47,11 @@ export const TYPES_CYCLES_MUTATION = {
 
   INTERRUPT_CURRENT_CYCLE: {
     type: 'INTERRUPT_CURRENT_CYCLE',
-    mutation: (
-      state: CycleState,
-      payload: {
-        activeCycleId: string
-      },
-    ) => {
+    mutation: (state: CycleState) => {
       return {
         ...state,
         cycles: state.cycles.map((cycle) => {
-          if (cycle.id === payload.activeCycleId) {
+          if (cycle.id === state.activeCycleId) {
             return { ...cycle, interruptedDate: new Date() }
           }
           return cycle
