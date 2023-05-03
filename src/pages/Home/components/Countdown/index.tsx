@@ -15,7 +15,8 @@ export function Countdown() {
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
 
   useEffect(() => {
-    let interval: number
+    // eslint-disable-next-line no-undef
+    let interval: NodeJS.Timer
 
     if (activeCycle) {
       interval = setInterval(() => {
