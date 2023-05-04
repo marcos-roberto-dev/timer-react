@@ -68,7 +68,5 @@ export interface ActionPayload {
 }
 
 export function cycleReducer(state: CycleState, action: ActionPayload) {
-  return (
-    TYPES_CYCLES_MUTATION[action.type].mutation(state, action.payload) ?? state
-  )
+  return TYPES_CYCLES_MUTATION[action.type].mutation(state, action.payload)
 }
