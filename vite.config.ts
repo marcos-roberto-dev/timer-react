@@ -7,12 +7,13 @@ import * as path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
+    reporters: ['default', 'html'],
     globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
-    css: false,
-    deps: {
-      fallbackCJS: true,
+    coverage: {
+      provider: 'c8',
+      enabled: true,
     },
   },
   plugins: [react()],

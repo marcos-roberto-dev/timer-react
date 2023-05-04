@@ -9,7 +9,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run -w --coverage "
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
@@ -23,13 +23,10 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@cfaester/enzyme-adapter-react-18": "^0.7.0",
     "@rocketseat/eslint-config": "^1.2.0",
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/user-event": "^14.4.3",
     "@types/enzyme": "^3.10.13",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -37,7 +34,8 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0-beta.0",
-    "@vitest/coverage-istanbul": "^0.31.0",
+    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/ui": "^0.31.0",
     "enzyme": "^3.11.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
