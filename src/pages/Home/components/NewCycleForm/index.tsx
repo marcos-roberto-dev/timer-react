@@ -33,6 +33,7 @@ export function NewCycleForm() {
       <MinutesAmountInput
         type="number"
         disabled={!!activeCycle}
+        aria-disabled={!!activeCycle}
         id="minutesAmount"
         placeholder="00"
         step={5}
