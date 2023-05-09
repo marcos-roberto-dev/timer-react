@@ -21,7 +21,7 @@ interface CreateCycleData {
 
 interface CyclesContextType {
   cycles: Cycle[]
-  activeCycle: Cycle | undefined
+  activeCycle: Cycle | null
   activeCycleId: string | null
   amountSecondsPassed: number
   markCurrentCycleAsFinished: () => void
@@ -33,7 +33,7 @@ interface CyclesContextType {
 export const CyclesContext = createContext({} as CyclesContextType)
 
 interface CyclesContextProviderProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export function CyclesContextProvider({
@@ -56,9 +56,8 @@ export function CyclesContextProvider({
     },
   )
 
-  const activeCycle = state.cycles.find(
-    (cycle) => cycle.id === state.activeCycleId,
-  )
+  const activeCycle =
+    state.cycles.find((cycle) => cycle.id === state.activeCycleId) ?? null
 
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(() => {
     if (activeCycle)
@@ -68,7 +67,6 @@ export function CyclesContextProvider({
 
   const setLocalStorageCycle = useCallback(() => {
     const stateJSON = JSON.stringify(state)
-    console.log('call', state)
     localStorage.setItem('@timer-react:cycles-state-1.0.0', stateJSON)
   }, [state])
 

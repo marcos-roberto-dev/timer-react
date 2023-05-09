@@ -13,7 +13,6 @@ export function Countdown() {
   } = useContext(CyclesContext)
 
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
-
   useEffect(() => {
     // eslint-disable-next-line no-undef
     let interval: NodeJS.Timer
@@ -27,7 +26,6 @@ export function Countdown() {
 
         if (secondsDifference >= totalSeconds) {
           markCurrentCycleAsFinished()
-
           setSecondsPassed(totalSeconds)
           clearInterval(interval)
         } else {
@@ -48,7 +46,6 @@ export function Countdown() {
   ])
 
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
-
   const minutesAmount = Math.floor(currentSeconds / 60)
   const secondsAmount = currentSeconds % 60
 
