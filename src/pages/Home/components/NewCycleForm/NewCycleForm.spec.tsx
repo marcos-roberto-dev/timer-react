@@ -21,7 +21,7 @@ vi.mock('react-hook-form', async () => {
   return {
     ...(actual as any),
     useFormContext: () => ({
-      register: vi.fn(),
+      register: () => ({}),
     }),
   }
 })
